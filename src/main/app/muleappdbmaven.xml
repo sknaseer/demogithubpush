@@ -11,6 +11,7 @@ http://www.mulesoft.org/schema/mule/db http://www.mulesoft.org/schema/mule/db/cu
 	<db:mysql-config name="MySQL_Configuration" host="localhost" port="3306" user="root" password="root" database="tst" doc:name="MySQL Configuration"/>
 	<flow name="muleappdbmavenFlow">
 		<http:listener config-ref="HTTP_Listener_Configuration" path="/pomapp" doc:name="HTTP"/>
+		<logger message="Start Logger" level="INFO" doc:name="Logger"/>
 		<db:select config-ref="MySQL_Configuration" doc:name="Database">
 			<db:parameterized-query><![CDATA[select * from Employee]]></db:parameterized-query>
 		</db:select>
